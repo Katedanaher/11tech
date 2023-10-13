@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIZ</title>
+</head>
+<body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+    <div class="header">
+  
+          <div class="header-left">
+            <a href="Website.html"><i class="fa fa-fw fa-home"></i>
+              <a href="thehub.html">THE HUB</a> 
+          </div>  
+          <div class="header-right">
+            <a href="about.html">ABOUT</a> 
+            <a href="quiz.html"> QUIZ</a>
+          <a href="yr11database.html"><i class="fa fa-fw fa-user"></i> </a>
+          
+          </div>
+        </div> 
+      </div>
+      </div>
+      <h1> GET STUFF DONE</h1>
+      <h4> Please fill this quiz out to be able to complete signing in</h4>
+      <br><br><br><br><br><br><br>
+    
+      <div class="quiz"> 
+        <h2 id="questionSpace"></h2>
+      <input id="userInput"> <br><br>
+      <button onclick="submit()">Submit</button>  
+      <h3 id="scoreSpace"></h3>
+
+      </div>
+      
+
+
+    </body>
+<style>
+    h1 {color:#55828B;text-align: center;}
+    body{background-color: #C9E4CA;}
+    h4 {color: #55828B; text-align: center;}
+  
+
+  a{
+  
+  text-decoration:none;color:white;
+  
+  }
+  /* Style the navigation bar */
+  .header{
+    width: 100%;
+    background-color:#55828B;
+    overflow: auto;
+    float: left;
+    margin: 0px;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    margin:-1px;
+    margin-top: -20px;
+    margin-left: -15px;
+  }
+  
+  .header-right{
+    float:right; 
+    text-align: center;
+    padding: 14px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    margin: -1px;
+  }
+  
+  .header-left {
+    float:left; 
+    text-align: center;
+    padding: 14px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    margin: -1px;
+  
+  }
+  
+  /* Navbar links on mouse-over */
+  .navbar a:hover {
+    background-color: #3B6064;
+  }
+  
+  /* Current/active navbar link */
+  .active {
+    background-color:#55828B;
+  }
+  
+  /* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+  @media screen and (max-width: 500px) {
+    .navbar a {
+      float: none;
+      display: block;
+    }
+  }
+  input {width: 120px;}
+.quiz 
+{
+    border-style: solid;
+    border-radius: 34px;
+    background-color:#55828B;
+    width: 25%;
+    margin-inline-start: 37%;
+    outline: 34px;
+    outline-style:solid;
+    outline-color:#3B6064;
+    float:center;
+    color: white;
+    text-align: center;
+    
+  }
+</style>
+<script>
+    
+      var questions = ["What period of time can you achieve the most effective study?" , "How many credits do you need to have to pass NCEA Level 1" , 
+      "How many numeracy credits do you need to pass NCEA Level 1 " , "True or False you can achieve better study in a noisy enviroment" ,
+       "How many subjects can you take in Year 11"];
+    var answers = ["45 mintues" , "80 credits" , "10 credits" , "False" , "7"];
+    var counter = 0
+    var score = 0
+    var questionSpace = document.getElementById("questionSpace");
+    var userInput = document.getElementById("userInput");
+    var scoreSpace = document.getElementById("scoreSpace");
+   
+
+    questionSpace.innerHTML = questions [0]
+    
+    function submit() {
+            if(userInput.value == "") {
+              alert("Please answer the question")
+                score++
+                update()
+            } else {
+                update()
+            } 
+        }
+
+  
+       function update () {
+        if(counter == (questions.length-1)) {
+        scoreSpace.innerHTML = "Your score is" + score  
+        } else{
+          counter++
+        questionSpace.innerHTML = questions[counter]
+        userInput.value =""  
+        
+      
+    }
+    }
+   
+   
+</script>
+</html>

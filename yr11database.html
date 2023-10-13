@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN IN</title>
+</head>
+<body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+    <div class="header">
+  
+          <div class="header-left">
+            <a href="Website.html"><i class="fa fa-fw fa-home"></i>
+              <a href="thehub.html">THE HUB</a> 
+          </div>  
+          <div class="header-right">
+            <a href="about.html">ABOUT</a> 
+            <a href="quiz.html"> QUIZ</a>
+          <a href="yr11database.html"><i class="fa fa-fw fa-user"></i> </a>
+          
+          </div>
+        </div> 
+      </div>
+      </div>
+  
+    </div>
+    <br> <br> 
+    <div class="title">
+    <h1> SIGN IN</h1>
+    <h3> Please fill out the quiz before signing in!</h3>
+    </div>
+    <br>
+
+    
+      
+  </body>
+  
+  <style>  
+  body{background-color: #C9E4CA;}
+  
+  
+  a{
+  
+  text-decoration:none;color:white;
+  
+  }
+  /* Style the navigation bar */
+  .header{
+    width: 100%;
+    background-color:#55828B;
+    overflow: auto;
+    float: left;
+    margin: 0px;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    margin:-1px;
+    margin-top: -20px;
+    margin-left: -15px;
+  }
+  
+  .header-right{
+    float:right; 
+    text-align: center;
+    padding: 14px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    margin: -1px;
+  }
+  
+  .header-left {
+    float:left; 
+    text-align: center;
+    padding: 14px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    margin: -1px;
+  
+  }
+  
+  /* Navbar links on mouse-over */
+  .navbar a:hover {
+    background-color: #3B6064;
+  }
+  
+  /* Current/active navbar link */
+  .active {
+    background-color:#55828B;
+  }
+  
+  /* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+  @media screen and (max-width: 500px) {
+    .navbar a {
+      float: none;
+      display: block;
+    }
+  }
+
+  .title{
+text-align: center;
+color:#55828B;
+}
+
+input {width: 120px;}
+    
+  #enterDetails {
+    border-style: solid;
+    border-radius: 34px;
+    background-color:#55828B;
+    width: 25%;
+    margin-inline-start: 37%;
+    outline: 34px;
+    outline-style:solid;
+    outline-color:#3B6064;
+    float:left;
+    color: white;
+    text-align: center;
+    margin: -1px;
+    margin-left:30px;
+    margin-top: 35px;
+  }
+   
+    #findDetails {
+    border-style: solid;
+    border-radius: 34px;
+    background-color:#55828B;
+    width: 25%;
+    margin-inline-start: 37%;
+    outline: 34px;
+    outline-style:solid;
+    outline-color:#3B6064;
+    float:right;
+    color: white;
+    text-align: center;
+    margin: -1px;
+    margin-right:35px;
+    margin-top: 100px;
+  }
+  
+
+  </style>
+  <body>
+    <div id="enterDetails">
+        <h1>Enter School Information</h1>
+        
+        <h4>School ID</h4> 
+        <input id="enterID" type="text"> 
+        
+        <h4>Full Name</h4>
+        <input id="enterName"type="text">
+        
+        <h4> Quiz Results</h4>
+        <input id="enterResults"type="text">
+        
+        <h4>Year</h4>
+        <input id="enterYear"type="number">  <br><br>
+        
+        <button Id="insert">INSERT</button>
+        <button Id="update">UPDATE</button>
+        <button Id="remove">REMOVE</button> <br><br>
+        </div>    
+        
+        <div id="findDetails">
+            <h1>Find by School ID</h1>
+            <h4> School ID</h4>
+            <input id="findID" type="text"> <br><br>
+            <button id="find">FIND</button>
+            <h3 id="findName" type="text"></h3>
+            <h3 id="findYear" type="number"></h3> <br><br>
+        </div>
+
+        <script type="module">
+
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+       // TODO: Add SDKs for Firebase products that you want to use
+       // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+     const firebaseConfig = {
+    apiKey: "AIzaSyALABdvXZ9-UPhXG2cvBeep9CyXH0Ue210",
+    authDomain: "yr-11-database.firebaseapp.com",
+    databaseURL: "https://yr-11-database-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "yr-11-database",
+    storageBucket: "yr-11-database.appspot.com",
+    messagingSenderId: "509276911664",
+    appId: "1:509276911664:web:ecbc9a6b76a0870210d5f5"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+   
+  import{getDatabase, set, get, update, remove, ref, child}
+  from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js"
+
+const db = getDatabase();
+
+
+var enterID = document.querySelector("#enterID");
+    var enterResults = document.querySelector("#enterResults");
+    var enterStyle = document.querySelector("#enterStyle");
+    var enterYear = document.querySelector("#enterYear");
+    var findID = document.querySelector("#findID");
+    var findName = document.querySelector("#findName");
+    var findYear = document.querySelector("#findYear");
+
+    var insertBtn = document.querySelector("#insert");
+    var updateBtn = document.querySelector("#update");
+    var removeBtn = document.querySelector("#remove");
+    var findBtn = document.querySelector("#find");
+
+
+    function InsertData() {
+        set(ref(db, "People/" + enterID.value), {
+            Name: enterName.value,
+            ID: enterID.value,
+            Results:enterResults,
+            Year: enterYear.value
+        })
+
+        .then(()=>{
+          alert("Data added successfully!");
+       })
+      .catch((error)=>{
+         alert(error);
+      });
+    }
+    function FindData() {
+    const dbref = ref(db);
+
+    get(child(dbref, "People/" + findID.value))
+    .then((snapshot)=>{
+      if(snapshot.exists()){
+         findName.innerHTML = "Name:" + snapshot.val().Name;
+         findYear.innerHTML = "Year:" + snapshot.val().Year;
+      } else {
+        alert("No data found");
+      }
+    })
+    .catch((error)=>{
+       alert(error)
+    })
+   }
+
+
+function UpdateData() {
+  update(ref(db, "People/" + enterID.value ),{
+    Name: enterName.value,
+    Results:enterResults.value,
+    Year: enterYear.value
+  })
+
+
+  .then(()=>{
+    alert("Data updated successfully!");
+  }) 
+   .catch((error)=>{
+    alert(error);
+   });
+}
+
+function RemoveData(){
+  remove(ref(db, "People/" + enterID.value))
+  .then(()=>{
+     alert("Data deleted successfully!");
+  })
+  .catch((error)=>{
+    alert(error);
+
+  });
+
+}
+
+
+
+insertBtn.addEventListener("click", InsertData);
+updateBtn.addEventListener("click", UpdateData);
+removeBtn.addEventListener("click", RemoveData);
+findBtn.addEventListener("click", FindData);
+
+
+</script>
+  </body>
+</html>

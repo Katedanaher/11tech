@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE HUB</title>
+    
+</head>
+<body>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+  <div class="header">
+
+        <div class="header-left">
+          <a href="Website.html"><i class="fa fa-fw fa-home"></i>
+            <a href="thehub.html">THE HUB</a> 
+        </div>  
+            <div class="header-right">
+              <a href="about.html">ABOUT</a> 
+              <a href="quiz.html"> QUIZ</a>
+            <a href="yr11database.html"><i class="fa fa-fw fa-user"></i> </a>
+        </div>
+      </div> 
+      <h1> THE HUB</h1> 
+    
+      <h2> 45 MINTUE TIMER</h2>
+      <div id="Timer"></div>
+      <br>
+    <h2> ENTER DATES</h2>
+    <label for="start"> Dates:</label> 
+    <input type="date" id="start" name="trip-start"
+               value="2023-07-14"
+               min="202-301-01" max="2025-12-31">
+            
+               <label for="appt">Times:</label> 
+
+             <input type="time" id="appt" name="appt"
+                    min="09:00" max="00:00" required> 
+
+<br>
+
+<h3> TIPS FROM YOUR BIG SISTERS</h3>
+<h4> - Try to set up a quiet space where you know you will be able to study</h4>
+<h4> - Start studying in advance, by doing this you don't feel as stressed as you know you have enough time to cover everything </h4>
+<h4> - Start with the subject you find the hardest and work your way through the subjects </h4>
+<h4> - Create a to-do list to keep yourself accountable.  </h4>
+
+
+
+  </body>
+  <style>
+  
+  a{
+
+  text-decoration:none;color:white;
+  
+  
+  }
+  /* Style the navigation bar */
+  .header{
+    width: 100%;
+    background-color:#55828B;
+    overflow: auto;
+    float: left;
+    margin: 0px;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    margin:-1px;
+    margin-top:-20px;
+    margin-left:-15px;
+  }
+  
+  
+  .header-right{
+    float:right; 
+    text-align: center;
+    padding: 14px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    margin: -1px;
+  }
+  
+  .header-left {
+    float:left; 
+    text-align: center;
+    padding: 14px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    margin: -1px;
+  
+  }
+
+  
+
+  /* Navbar links on mouse-over */
+  .navbar a:hover {
+    background-color: #3B6064;
+  }
+  
+  /* Current/active navbar link */
+  .active {
+    background-color:#55828B;
+  }
+  
+  /* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+  @media screen and (max-width: 500px) {
+    .navbar a {
+      float: none;
+      display: block;
+    }
+  }
+  .title{
+    float:center;
+    text-align:center;
+    padding:50px;
+    color: #55828B;
+    text-decoration: none;
+    font-size: 20px;
+    margin-left:2px; 
+  }
+ 
+
+label {
+    display: block;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+
+  }
+
+input,
+label {
+    margin: 0.4rem 0; 
+}
+
+label {
+    display: block;
+    font: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+input,
+label {
+    margin: 0.4rem 0; 
+    
+}
+input {width: 120px;}
+    
+   
+  body{background-color: #C9E4CA;}
+  h1{text-align: center;color: #55828B;}
+  h2{text-align:left;color: #55828B;}
+  h3{text-align: center;color: #55828B;}
+  h4{text-align: center;color:#3B6064}
+  
+  
+  </style> 
+  <script>
+
+var timeLeft = 2700;
+var elem = document.getElementById('Timer');
+var timerId = setInterval(countdown, 1000);
+
+function countdown() {
+  if (timeLeft == 0) {
+    clearTimeout(timerId);
+    doSomething();
+  } else {
+    elem.innerHTML = timeLeft + ' seconds remaining';
+    timeLeft--;
+  }
+}
+  </script>
+</body>
+</html>
